@@ -8,4 +8,7 @@ public class test {
  * TROLL
  * 
  */
+public void test(){
+	
+}
 }
