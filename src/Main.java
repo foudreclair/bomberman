@@ -11,6 +11,14 @@ public class Main {
 		StdDraw.setYscale(0,1000);
 //		StdDraw.picture(100, 100, "images/bomberman.png");
 		StdDraw.show();*/
+		//StdDraw.setCanvasSize(1000,1000);
+		//StdDraw.setXscale(0,1000);
+		//StdDraw.setYscale(0,1000);
+		//StdDraw.picture(100, 100, "images/bomberman.png");
+		//StdDraw.show();
+		
+		Map Map=new Map();
+		
 	}
 
 }
