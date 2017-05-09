@@ -1,3 +1,4 @@
+package bomberman.gui;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Joueur {

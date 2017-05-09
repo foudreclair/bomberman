@@ -1,3 +1,5 @@
+package bombemran.menu;
+import bomberman.gui.Map;
 
 public class Main {
 
