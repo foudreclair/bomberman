@@ -24,10 +24,12 @@ public class Joueur {
 		this.vie = 3;
 		this.nbBombes = 3;
 		this.typeBombes = 1;
-		
-		StdDraw.picture(x, y, "images/bomberman.png");
 	}
 	
+	public void Start() {
+		StdDraw.picture(x, y, "images/bomberman.png");
+		System.out.println("Apparition du joueur");
+	}
 	
 	public String getNom() {
 		return nom;
