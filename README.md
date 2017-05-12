@@ -1,2 +1,0 @@
-# bomberman
-Bomberman projet isep
