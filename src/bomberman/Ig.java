@@ -1,5 +1,7 @@
 package bomberman;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import edu.princeton.cs.introcs.*;
 public class Ig {
 
@@ -11,7 +13,8 @@ public class Ig {
 	public int l=21;
 	//L est la largeur
 	public int L=17;
-	
+	public ArrayList<Bombe> nbBombes = new ArrayList();
+		
 	Joueur J1 =new Joueur("J1", 1,1);
 	Joueur J2 =new Joueur("J2", 19,15);
 	
@@ -122,7 +125,7 @@ public class Ig {
 			}
 		}
 		
-		//keycodes d = 68, q=81, z=90, s=83
+		//keycodes d = 68, q=81, z=90, s=83, f=70
 		if(StdDraw.isKeyPressed(68)){
 			J1.moveRight(J1, map);
 		}
@@ -135,7 +138,15 @@ public class Ig {
 		if(StdDraw.isKeyPressed(83)){
 			J1.moveDown(J1, map);
 		}
-		//keycodes  J2
+		if(StdDraw.isKeyPressed(70)) {
+			if(J1.checkNbBombes(J1) == true) {
+				nbBombes.add(new Bombe(J1.getX(),J1.getY()));
+			}
+			else {
+				System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
+			}
+		}
+		//keycodes  J2 0 = 48
 		if(StdDraw.isKeyPressed(39)){
 			J2.moveRight(J2, map);
 		}
@@ -151,11 +162,28 @@ public class Ig {
 		if(StdDraw.isKeyPressed(32)){
 			J2.setVie(J2.getVie()-1);
 		}
+		if(StdDraw.isKeyPressed(48)){
+			if(J2.checkNbBombes(J2) == true) {
+				nbBombes.add(new Bombe(J2.getX(),J2.getY()));
+			}
+			else {
+				System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
+			}
+		}
+		
 		StdDraw.pause(40);
 		StdDraw.picture(J1.getX()+0.5,J1.getY()+0.5 , "images/bomberman_player.png");
 		StdDraw.picture(J2.getX()+0.5,J2.getY()+0.5 , "images/bomferman_player.png");
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.text(2+0.5, 16+0.5, "Joueur 1 : "+J1.getVie());
+		if(nbBombes.size() !=0) {
+			for(int i = 0;i < nbBombes.size();i++) {
+				StdDraw.picture(nbBombes.get(i).getX()+0.5,nbBombes.get(i).getY()+0.5 , "images/bomb0.png");
+				nbBombes.get(i).exploser(nbBombes.get(i), map);
+			}
+			
+		}
+
 		StdDraw.show();
 		}
 		

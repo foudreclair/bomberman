@@ -24,11 +24,21 @@ public class Joueur{
 	
 	}
 	
-	//Déplacement
+	public boolean checkNbBombes(Joueur j) {
+		if(j.getNbbombes() > 0) {
+			j.setNbbombes(j.getNbbombes()-1);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	//Dï¿½placement
 	public void moveRight(Joueur j, int[][] map){
 		if(map[y][x+1]==2){
 			j.x+=1;
-			System.out.println("Le joueur " +j.nom+" se déplace a droite.");
+			System.out.println("Le joueur " +j.nom+" se dï¿½place a droite.");
 		}else{
 			System.out.println("Mouvement impossible.");
 		}
@@ -36,7 +46,7 @@ public class Joueur{
 	public void moveLeft(Joueur j, int[][] map){
 		if(map[y][x-1] ==2){
 			j.x-=1;
-			System.out.println("Le joueur " +j.nom+" se déplace a gauche.");
+			System.out.println("Le joueur " +j.nom+" se dï¿½place a gauche.");
 		}else{
 			System.out.println("Mouvement impossible.");
 		}
@@ -44,7 +54,7 @@ public class Joueur{
 	public void moveUp(Joueur j, int[][] map){
 		if(map[y+1][x]==2){
 			j.y+=1;
-			System.out.println("Le joueur " +j.nom+" se déplace vers le haut.");
+			System.out.println("Le joueur " +j.nom+" se dï¿½place vers le haut.");
 		}else{
 			System.out.println("Mouvement impossible.");
 		}
@@ -52,7 +62,7 @@ public class Joueur{
 	public void moveDown(Joueur j, int[][] map){
 		if(map[y-1][x] ==2){
 			j.y-=1;
-			System.out.println("Le joueur " +j.nom+" se déplace vers le bas.");
+			System.out.println("Le joueur " +j.nom+" se dï¿½place vers le bas.");
 		}else{
 			System.out.println("Mouvement impossible.");
 		}
