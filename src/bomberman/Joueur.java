@@ -18,7 +18,7 @@ public class Joueur{
 		this.x = x;
 		this.y = y;
 		this.vie =3;
-		this.nbbombes = 3;
+		this.nbbombes = 300;
 		this.typebombes = 1;
 		this.longeurflame =2;
 	
@@ -34,7 +34,7 @@ public class Joueur{
 		}
 	}
 	
-	//D�placement
+	//Deplacement
 	public void moveRight(Joueur j, int[][] map){
 		if(map[y][x+1]==2){
 			j.x+=1;

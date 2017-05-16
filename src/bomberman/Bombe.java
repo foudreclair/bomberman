@@ -1,6 +1,7 @@
 package bomberman;
 
-import java.util.concurrent.CountDownLatch;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import edu.princeton.cs.introcs.StdDraw;
 
@@ -11,7 +12,7 @@ public class Bombe {
 	private int x;
 	private int y;
 	private Joueur joueur;
-	private CountDownLatch latch = new CountDownLatch(3);
+	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
 	public Bombe(int x, int y) {
 		this.x = x;
@@ -21,15 +22,79 @@ public class Bombe {
 		this.tailleFlamme = 3;
 	}
 
-	public void exploser(Bombe b, int[][] map) {
-		for(int i = 0;i<tailleFlamme;i++) {
-			if(map[y][x+i]==2 || map[y][x+i]==1) {
-				StdDraw.picture(b.getX()+i+0.5,b.getY()+0.5 , "images/explosion_hori.png");
+	public boolean exploser(Bombe b, Map mapcurrent, Joueur J1, Joueur J2) {
+		int[][] map = mapcurrent.getMap();
+		boolean exploser = false;
+		// Current Timestamp
+		Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
+		if (currentTimeStamp.getTime() - b.timestamp.getTime() > 4000) {
+			// Explosion sur l'axe des X positifs
+			for (int i = 0; i <= tailleFlamme; i++) {
+				if (map[y][x + i] == 0) {
+					break;
+				}
+				if (map[y][x + i] == 2) {
+					StdDraw.picture(b.getX() + i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
+				}
+				if (map[y][x + i] == 1) {
+					StdDraw.picture(b.getX() + i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
+					mapcurrent.setMap(y, x + i, 2);
+					break;
+				}
 			}
-		}
 
+			// Explosion sur l'axe des X négatifs
+			for (int i = 0; i <= tailleFlamme; i++) {
+				if (map[y][x - i] == 0) {
+					break;
+				}
+				if (map[y][x - i] == 2) {
+					StdDraw.picture(b.getX() - i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
+				}
+				if (map[y][x - i] == 1) {
+					StdDraw.picture(b.getX() - i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
+					mapcurrent.setMap(y, x - i, 2);
+					break;
+				}
+			}
+			// Explosion sur l'axe des Y positifs
+			for (int j = 0; j <= tailleFlamme; j++) {
+				if (map[y + j][x] == 0) {
+					break;
+				}
+				if (map[y + j][x] == 1) {
+					StdDraw.picture(b.getX() + 0.5, b.getY() + j + 0.5, "images/explosion_vert.png");
+					mapcurrent.setMap(y + j, x, 2);
+					break;
+				}
+				if (map[y + j][x] == 2) {
+					StdDraw.picture(b.getX() + 0.5, b.getY() + j + 0.5, "images/explosion_vert.png");
+
+				}
+
+			}
+			// Explosion sur l'axe des Y négatifs
+			for (int j = 0; j <= tailleFlamme; j++) {
+				if (map[y - j][x] == 0) {
+					break;
+				}
+				if (map[y - j][x] == 1) {
+					StdDraw.picture(b.getX() + 0.5, b.getY() - j + 0.5, "images/explosion_vert.png");
+					mapcurrent.setMap(y - j, x, 2);
+					break;
+				}
+				if (map[y - j][x] == 2) {
+					StdDraw.picture(b.getX() + 0.5, b.getY() - j + 0.5, "images/explosion_vert.png");
+				}
+
+			}
+			exploser = true;
+			
+		}
+		return exploser;
 	}
-	
+
+
 	public int getTailleFlamme() {
 		return tailleFlamme;
 	}
