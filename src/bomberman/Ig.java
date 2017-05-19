@@ -104,10 +104,7 @@ public class Ig {
 	}
 
 	public void ecran_de_jeu(Map mapcurrent) {
-		J1.setVie(3);
-		J2.setVie(3);
 		while (J1.getVie() != 0 && J2.getVie() != 0) {
-			
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
 			StdDraw.enableDoubleBuffering();
@@ -141,8 +138,10 @@ public class Ig {
 				J1.moveDown(J1, map);
 			}
 			if (StdDraw.isKeyPressed(70)) {
-				if (J1.checkNbBombes(J1) == true && map[J1.getY()][J1.getX()] != 3) {
+				if (J1.getNbbombes() > 0 && map[J1.getY()][J1.getX()] != 3) {
+					J1.setNbbombes(J1.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J1.getX(), J1.getY(), J1));
+					System.out.println("Le joueur " + J1.getNom() + " pose une bombe");
 				} else {
 					System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
 				}
@@ -162,8 +161,10 @@ public class Ig {
 			}
 			
 			if (StdDraw.isKeyPressed(17)) {
-				if (J2.checkNbBombes(J2) == true && map[J2.getY()][J2.getX()] != 3) {
+				if (J2.getNbbombes() > 0 == true && map[J2.getY()][J2.getX()] != 3) {
+					J2.setNbbombes(J2.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
+					System.out.println("Le joueur " + J2.getNom() + " pose une bombe");
 				} else {
 					System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
 				}
@@ -189,14 +190,16 @@ public class Ig {
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			StdDraw.setPenColor(StdDraw.WHITE);
-			StdDraw.text(2+0.5, 16+0.5, "Joueur 1 : "+J1.getVie());
-			StdDraw.text(17+0.5, 16+0.5, "Joueur 2 : "+J2.getVie());			
+			StdDraw.text(2+0.5, 16+0.5, "Joueur 1 : "+J1.getNbbombes());
+			StdDraw.text(17+0.5, 16+0.5, "Joueur 2 : "+J2.getNbbombes());
+
+			
 			StdDraw.show();
 		}
 
 	}
 
-	public void ecran_fin() {
+	public void ecran_fin(Map map) {
 		while (true) {
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
@@ -212,7 +215,10 @@ public class Ig {
 			StdDraw.pause(40);
 			if (StdDraw.mouseX() >= 10 && StdDraw.mouseX() <= 12 && StdDraw.mouseY() > 3 && StdDraw.mouseY() < 5) {
 				if (StdDraw.mousePressed()) {
-					ecran_de_demarrage();
+					J1.setVie(3);
+					J2.setVie(3);
+					map.resetMap();
+					ecran_de_jeu(map);
 				}
 			}
 			if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=12&&StdDraw.mouseY()>1&&StdDraw.mouseY()<3){

@@ -25,16 +25,6 @@ public class Joueur{
 		this.longeurflame =2;
 	
 	}
-	//Check le nombre de bombe
-	public boolean checkNbBombes(Joueur j) {
-		if(j.getNbbombes() > 0) {
-			j.setNbbombes(j.getNbbombes()-1);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 	
 	//Deplacement
 	public void moveRight(Joueur j, int[][] map){

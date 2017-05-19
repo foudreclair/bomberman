@@ -33,7 +33,7 @@ public class Map {
 		this.map[Y][X] =valeur;
 	}
 	public void resetMap(){
-		map=map_initial;
+		this.map=map_initial;
 		
 		
 	}

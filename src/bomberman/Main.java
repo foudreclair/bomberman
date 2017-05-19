@@ -14,7 +14,7 @@ public class Main {
 		bomberman.intialisation_ecran();
 		bomberman.ecran_de_demarrage();
 		bomberman.ecran_de_jeu(map);
-		bomberman.ecran_fin();
+		bomberman.ecran_fin(map);
 	}
 
 }

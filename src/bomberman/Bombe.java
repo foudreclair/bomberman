@@ -30,7 +30,7 @@ public class Bombe {
 		Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
 		if (currentTimeStamp.getTime() - b.timestamp.getTime() > 4000) {
 			// Explosion sur l'axe des X positifs
-			for (int i = 0; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= tailleFlamme; i++) {
 				if (map[y][x + i] == 0) {
 					break;
 				}
@@ -52,7 +52,7 @@ public class Bombe {
 			}
 
 			// Explosion sur l'axe des X négatifs
-			for (int i = 0; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= tailleFlamme; i++) {
 				if (map[y][x - i] == 0) {
 					break;
 				}
@@ -73,7 +73,7 @@ public class Bombe {
 				}
 			}
 			// Explosion sur l'axe des Y positifs
-			for (int j = 0; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= tailleFlamme; j++) {
 				if (map[y + j][x] == 0) {
 					break;
 				}
@@ -95,7 +95,7 @@ public class Bombe {
 				}
 			}
 			// Explosion sur l'axe des Y négatifs
-			for (int j = 0; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= tailleFlamme; j++) {
 				if (map[y - j][x] == 0) {
 					break;
 				}
@@ -115,6 +115,14 @@ public class Bombe {
 					J2.setVie(J2.getVie() - 1);
 				}
 
+			}
+			
+			//On vérifie la position du joueur a la postion de la bombe
+			if(b.getX() == J1.getX() && b.getY() == J1.getY()) {
+				J1.setVie(J1.getVie() - 1);
+			}
+			if(b.getX() == J2.getX() && b.getY() == J2.getY()) {
+				J2.setVie(J2.getVie() - 1);
 			}
 			exploser = true;			
 		}
