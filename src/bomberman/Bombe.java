@@ -14,12 +14,13 @@ public class Bombe {
 	private Joueur joueur;
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-	public Bombe(int x, int y) {
+	public Bombe(int x, int y, Joueur joueur) {
 		this.x = x;
 		this.y = y;
 		this.delais = 3;
 		this.typeFlamme = 0;
 		this.tailleFlamme = 3;
+		this.joueur = joueur;
 	}
 
 	public boolean exploser(Bombe b, Map mapcurrent, Joueur J1, Joueur J2) {
@@ -41,6 +42,13 @@ public class Bombe {
 					mapcurrent.setMap(y, x + i, 2);
 					break;
 				}
+				//On vérifie la position du joueur
+				if(b.getX()+i == J1.getX() && b.getY() == J1.getY()) {
+					J1.setVie(J1.getVie() - 1);
+				}
+				if(b.getX()+i == J2.getX() && b.getY() == J2.getY()) {
+					J2.setVie(J2.getVie() - 1);
+				}
 			}
 
 			// Explosion sur l'axe des X négatifs
@@ -55,6 +63,13 @@ public class Bombe {
 					StdDraw.picture(b.getX() - i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
 					mapcurrent.setMap(y, x - i, 2);
 					break;
+				}
+				//On vérifie la position du joueur
+				if(b.getX()-i == J1.getX() && b.getY() == J1.getY()) {
+					J1.setVie(J1.getVie() - 1);
+				}
+				if(b.getX()-i == J2.getX() && b.getY() == J2.getY()) {
+					J2.setVie(J2.getVie() - 1);
 				}
 			}
 			// Explosion sur l'axe des Y positifs
@@ -71,7 +86,13 @@ public class Bombe {
 					StdDraw.picture(b.getX() + 0.5, b.getY() + j + 0.5, "images/explosion_vert.png");
 
 				}
-
+				//On vérifie la position du joueur
+				if(b.getX() == J1.getX() && b.getY()+j == J1.getY()) {
+					J1.setVie(J1.getVie() - 1);
+				}
+				if(b.getX() == J2.getX() && b.getY()+j == J2.getY()) {
+					J2.setVie(J2.getVie() - 1);
+				}
 			}
 			// Explosion sur l'axe des Y négatifs
 			for (int j = 0; j <= tailleFlamme; j++) {
@@ -86,10 +107,16 @@ public class Bombe {
 				if (map[y - j][x] == 2) {
 					StdDraw.picture(b.getX() + 0.5, b.getY() - j + 0.5, "images/explosion_vert.png");
 				}
+				//On vérifie la position du joueur
+				if(b.getX() == J1.getX() && b.getY()-j == J1.getY()) {
+					J1.setVie(J1.getVie() - 1);
+				}
+				if(b.getX() == J2.getX() && b.getY()-j == J2.getY()) {
+					J2.setVie(J2.getVie() - 1);
+				}
 
 			}
-			exploser = true;
-			
+			exploser = true;			
 		}
 		return exploser;
 	}

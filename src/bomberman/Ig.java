@@ -106,7 +106,10 @@ public class Ig {
 	public void ecran_de_jeu(Map mapcurrent) {
 		J1.setVie(3);
 		J2.setVie(3);
-		while (J1.getVie() != 0 & J2.getVie() != 0) {
+		while (J1.getVie() != 0 && J2.getVie() != 0) {
+			System.out.println("vie J1" + J1.getVie());
+			System.out.println("vie J2" + J2.getVie());
+
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
 			StdDraw.enableDoubleBuffering();
@@ -119,10 +122,10 @@ public class Ig {
 					} else if (map[y][x] == 1) {
 						StdDraw.setPenColor(StdDraw.ORANGE);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-					} else if (map[y][x] == 2) {
+					} else if (map[y][x] == 2 || map[y][x] == 3) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-					}
+					} 
 				}
 			}
 			
@@ -140,8 +143,8 @@ public class Ig {
 				J1.moveDown(J1, map);
 			}
 			if (StdDraw.isKeyPressed(70)) {
-				if (J1.checkNbBombes(J1) == true) {
-					nbBombes.add(new Bombe(J1.getX(), J1.getY()));
+				if (J1.checkNbBombes(J1) == true && map[J1.getY()][J1.getX()] != 3) {
+					nbBombes.add(new Bombe(J1.getX(), J1.getY(), J1));
 				} else {
 					System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
 				}
@@ -163,29 +166,30 @@ public class Ig {
 				J2.setVie(J2.getVie() - 1);
 			}
 			if (StdDraw.isKeyPressed(17)) {
-				if (J2.checkNbBombes(J2) == true) {
-					nbBombes.add(new Bombe(J2.getX(), J2.getY()));
+				if (J2.checkNbBombes(J2) == true && map[J2.getY()][J2.getX()] != 3) {
+					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
 				} else {
 					System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
 				}
 			}
-			//On affiche les bombes
+			//On affiche les bombes et les explosent
 			if (nbBombes.size() != 0) {
 				for (int i = 0; i < nbBombes.size(); i++) {
 					StdDraw.picture(nbBombes.get(i).getX() + 0.5, nbBombes.get(i).getY() + 0.5, "images/bomb0.png");
+			        //On met le type de la map en type bombe
+					mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 3);
+			        if(nbBombes.get(i).exploser(nbBombes.get(i), mapcurrent, J1, J2)== true) {
+				        //Une fois que la bombe explose on change le type de la map
+			        	mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 2);
+				        //On remet une bombe au joueur
+			        	nbBombes.get(i).getJoueur().setNbbombes(nbBombes.get(i).getJoueur().getNbbombes() + 1);
+						//on retire la bombe du tableau
+			        	nbBombes.remove(i);
+					}	
 				}
 
 			}
-			//On explose les bombes
-			if (nbBombes.size() != 0) {
-				for (int i = 0; i < nbBombes.size(); i++) {
-					if(nbBombes.get(i).exploser(nbBombes.get(i), mapcurrent, J1, J2)== true) {
-						nbBombes.remove(i);
-					}	
-					
-				}
-			}
-			StdDraw.pause(40);
+			StdDraw.pause(100);
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			StdDraw.setPenColor(StdDraw.BLACK);
@@ -208,7 +212,7 @@ public class Ig {
 			StdDraw.picture(11, 9, "images/victory.png");
 			StdDraw.text(11, 4, "Replay");
 			StdDraw.text(11, 2, "Leave");
-			StdDraw.pause(80);
+			StdDraw.pause(40);
 			if (StdDraw.mouseX() >= 9 && StdDraw.mouseX() <= 11 && StdDraw.mouseY() > 3 && StdDraw.mouseY() < 5) {
 				if (StdDraw.mousePressed()) {
 					ecran_de_demarrage();

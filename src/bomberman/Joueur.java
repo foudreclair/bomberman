@@ -1,5 +1,7 @@
 package bomberman;
 
+import java.util.ArrayList;
+
 import edu.princeton.cs.introcs.*;
 
 public class Joueur{
@@ -18,7 +20,7 @@ public class Joueur{
 		this.x = x;
 		this.y = y;
 		this.vie =3;
-		this.nbbombes = 300;
+		this.nbbombes = 3;
 		this.typebombes = 1;
 		this.longeurflame =2;
 	
@@ -39,7 +41,8 @@ public class Joueur{
 		if(map[y][x+1]==2){
 			j.x+=1;
 			System.out.println("Le joueur " +j.nom+" se d�place a droite.");
-		}else{
+		} 	
+		else {
 			System.out.println("Mouvement impossible.");
 		}
 	}
