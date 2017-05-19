@@ -162,9 +162,7 @@ public class Ig {
 			if (StdDraw.isKeyPressed(40)) {
 				J2.moveDown(J2, map);
 			}
-			if (StdDraw.isKeyPressed(32)) {
-				J2.setVie(J2.getVie() - 1);
-			}
+			
 			if (StdDraw.isKeyPressed(17)) {
 				if (J2.checkNbBombes(J2) == true && map[J2.getY()][J2.getX()] != 3) {
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
@@ -192,8 +190,9 @@ public class Ig {
 			StdDraw.pause(100);
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
-			StdDraw.setPenColor(StdDraw.BLACK);
-			StdDraw.text(2 + 0.5, 16 + 0.5, "Joueur 1 : " + J1.getVie());			
+			StdDraw.setPenColor(StdDraw.WHITE);
+			StdDraw.text(2+0.5, 16+0.5, "Joueur 1 : "+J1.getVie());
+			StdDraw.text(17+0.5, 16+0.5, "Joueur 2 : "+J2.getVie());			
 			StdDraw.show();
 		}
 
@@ -213,9 +212,14 @@ public class Ig {
 			StdDraw.text(11, 4, "Replay");
 			StdDraw.text(11, 2, "Leave");
 			StdDraw.pause(40);
-			if (StdDraw.mouseX() >= 9 && StdDraw.mouseX() <= 11 && StdDraw.mouseY() > 3 && StdDraw.mouseY() < 5) {
+			if (StdDraw.mouseX() >= 10 && StdDraw.mouseX() <= 12 && StdDraw.mouseY() > 3 && StdDraw.mouseY() < 5) {
 				if (StdDraw.mousePressed()) {
 					ecran_de_demarrage();
+				}
+			}
+			if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=12&&StdDraw.mouseY()>1&&StdDraw.mouseY()<3){
+				if(StdDraw.mousePressed()){
+					System.exit(0);
 				}
 			}
 
