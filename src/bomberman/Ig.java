@@ -107,9 +107,7 @@ public class Ig {
 		J1.setVie(3);
 		J2.setVie(3);
 		while (J1.getVie() != 0 && J2.getVie() != 0) {
-			System.out.println("vie J1" + J1.getVie());
-			System.out.println("vie J2" + J2.getVie());
-
+			
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
 			StdDraw.enableDoubleBuffering();
