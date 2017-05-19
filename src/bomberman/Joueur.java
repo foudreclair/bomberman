@@ -30,7 +30,7 @@ public class Joueur{
 	
 	//Deplacement
 	public void moveRight(Joueur j, int[][] map){
-		if(map[y][x+1]==2){
+		if(map[y][x+1]==2 ||map[y][x+1]==4){
 			j.x+=1;
 			System.out.println("Le joueur " +j.nom+" se d�place a droite.");
 		} 	
@@ -39,7 +39,7 @@ public class Joueur{
 		}
 	}
 	public void moveLeft(Joueur j, int[][] map){
-		if(map[y][x-1] ==2){
+		if(map[y][x-1] ==2 || map[y][x-1]==4){
 			j.x-=1;
 			System.out.println("Le joueur " +j.nom+" se d�place a gauche.");
 		}else{
@@ -47,7 +47,7 @@ public class Joueur{
 		}
 	}
 	public void moveUp(Joueur j, int[][] map){
-		if(map[y+1][x]==2){
+		if(map[y+1][x]==2 || map[y+1][x]==4){
 			j.y+=1;
 			System.out.println("Le joueur " +j.nom+" se d�place vers le haut.");
 		}else{
@@ -55,7 +55,7 @@ public class Joueur{
 		}
 	}
 	public void moveDown(Joueur j, int[][] map){
-		if(map[y-1][x] ==2){
+		if(map[y-1][x] ==2 || map[y-1][x]==4){
 			j.y-=1;
 			System.out.println("Le joueur " +j.nom+" se d�place vers le bas.");
 		}else{

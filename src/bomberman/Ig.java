@@ -120,10 +120,32 @@ public class Ig {
 					} else if (map[y][x] == 2 || map[y][x] == 3) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-					} 
+					} else if(map[y][x] == 4) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombup.png");
+
+					}
 				}
 			}
-			
+			//On affiche les bonus et on les appliquent si le jouer passe dessuss
+			if (nbBonus.size() != 0) {
+				for (int i = 0; i < nbBonus.size(); i++) {
+					//Changer le type en fonction du bonus avec des if...
+					mapcurrent.setMap(nbBonus.get(i).getY(), nbBonus.get(i).getX(), 4);
+					if(nbBonus.get(i).getX() == J1.getX() && nbBonus.get(i).getY() == J1.getY()) {
+						System.out.println("BONUS" + nbBonus.get(i).getTypeBonus());
+						nbBonus.get(i).ApplyBonus(J1);
+						mapcurrent.setMap(nbBonus.get(i).getY(), nbBonus.get(i).getX(), 2);
+				        nbBonus.remove(i);		     
+					}
+					else if(nbBonus.get(i).getX() == J2.getX() && nbBonus.get(i).getY() == J2.getY()) {
+						nbBonus.get(i).ApplyBonus(J2);
+						mapcurrent.setMap(nbBonus.get(i).getY(), nbBonus.get(i).getX(), 2);
+				        nbBonus.remove(i);		     
+					}
+				}	
+			}
 			// keycodes d = 68, q=81, z=90, s=83, f=70
 			if (StdDraw.isKeyPressed(68)) {
 				J1.moveRight(J1, map);
@@ -192,14 +214,6 @@ public class Ig {
 			        	nbBombes.remove(i);
 					}	
 				}
-				
-				//On affiche les bonus et on les appliquent si le jouer passe dessus
-				if (nbBonus.size() != 0) {
-					for (int i = 0; i < nbBonus.size(); i++) {
-						
-				        	nbBombes.remove(i);
-						}	
-					}
 
 			}
 			StdDraw.pause(40);
