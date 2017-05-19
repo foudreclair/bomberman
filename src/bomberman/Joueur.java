@@ -10,7 +10,8 @@ public class Joueur{
 	private int vie;
 	private int nbbombes;
 	private int typebombes;
-	private int longeurflame;
+	private int tailleFlamme;
+	private int delai;
 	private int x;
 	private int y;
 	
@@ -22,7 +23,8 @@ public class Joueur{
 		this.vie =3;
 		this.nbbombes = 3;
 		this.typebombes = 1;
-		this.longeurflame =2;
+		this.setDelai(4000);
+		this.setTailleFlamme(3);
 	
 	}
 	
@@ -80,7 +82,13 @@ public class Joueur{
 		return nbbombes;
 	}
 	public void setNbbombes(int nbbombes){
-		this.nbbombes=nbbombes;
+		if(this.nbbombes <= 7) {
+			this.nbbombes=nbbombes;
+		}
+		else if(nbbombes < 0){
+			this.nbbombes=nbbombes;
+		}
+		
 	}
 	public int getTypebombes(){
 		return typebombes;
@@ -99,6 +107,22 @@ public class Joueur{
 	}
 	public void setY(int a){
 		this.y=a;
+	}
+
+	public int getTailleFlamme() {
+		return tailleFlamme;
+	}
+
+	public void setTailleFlamme(int tailleFlamme) {
+		this.tailleFlamme = tailleFlamme;
+	}
+
+	public int getDelai() {
+		return delai;
+	}
+
+	public void setDelai(int delai) {
+		this.delai = delai;
 	}
 	
 }

@@ -17,6 +17,7 @@ public class Ig {
 	// L est la largeur
 	public int L = 17;
 	public ArrayList<Bombe> nbBombes = new ArrayList();
+	public ArrayList<Bonus> nbBonus = new ArrayList();
 
 	Joueur J1 = new Joueur("J1", 1, 1);
 	Joueur J2 = new Joueur("J2", 19, 15);
@@ -87,7 +88,6 @@ public class Ig {
 				StdDraw.text(17, 6, "0 : Use Bombe");
 				StdDraw.picture(17, 3, "images/bomferman_player.png");
 				StdDraw.text(11, 2, "Return");
-
 				StdDraw.pause(80);
 				if (StdDraw.mouseX() >= 10 && StdDraw.mouseX() <= 12 && StdDraw.mouseY() > 1 && StdDraw.mouseY() < 3) {
 					if (StdDraw.mousePressed()) {
@@ -160,7 +160,7 @@ public class Ig {
 				J2.moveDown(J2, map);
 			}
 			
-			if (StdDraw.isKeyPressed(17)) {
+			if (StdDraw.isKeyPressed(97)) {
 				if (J2.getNbbombes() > 0 == true && map[J2.getY()][J2.getX()] != 3) {
 					J2.setNbbombes(J2.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
@@ -180,13 +180,29 @@ public class Ig {
 			        	mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 2);
 				        //On remet une bombe au joueur
 			        	nbBombes.get(i).getJoueur().setNbbombes(nbBombes.get(i).getJoueur().getNbbombes() + 1);
-						//on retire la bombe du tableau
+						//On vérifie si on a un bonus
+			        	// 20% de chance d'obtenir un bonnus
+						double randombonnus = Math.random() ;
+						if(randombonnus<=0.2){
+							int randomBonus = (int)(Math.random() * 6); 
+							nbBonus.add(new Bonus(nbBombes.get(i).getX(), nbBombes.get(i).getY(), randomBonus));
+						}
+			        	//Si oui on crée le bonus
+			        	//on retire la bombe du tableau
 			        	nbBombes.remove(i);
 					}	
 				}
+				
+				//On affiche les bonus et on les appliquent si le jouer passe dessus
+				if (nbBonus.size() != 0) {
+					for (int i = 0; i < nbBonus.size(); i++) {
+						
+				        	nbBombes.remove(i);
+						}	
+					}
 
 			}
-			StdDraw.pause(100);
+			StdDraw.pause(40);
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			StdDraw.setPenColor(StdDraw.WHITE);

@@ -6,18 +6,20 @@ import java.util.ArrayList;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class Bombe {
-	private int tailleFlamme;
-	private int typeFlamme;
-	private int delais;
+	
 	private int x;
 	private int y;
+	private int tailleFlamme;
+	private int typeFlamme;
+	private int delai;
 	private Joueur joueur;
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
 	public Bombe(int x, int y, Joueur joueur) {
 		this.x = x;
 		this.y = y;
-		this.delais = 3;
+		this.tailleFlamme = joueur.getTailleFlamme();
+		this.delai = joueur.getDelai();
 		this.typeFlamme = 0;
 		this.tailleFlamme = 3;
 		this.joueur = joueur;
@@ -28,7 +30,7 @@ public class Bombe {
 		boolean exploser = false;
 		// Current Timestamp
 		Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
-		if (currentTimeStamp.getTime() - b.timestamp.getTime() > 4000) {
+		if (currentTimeStamp.getTime() - b.timestamp.getTime() > delai) {
 			// Explosion sur l'axe des X positifs
 			for (int i = 1; i <= tailleFlamme; i++) {
 				if (map[y][x + i] == 0) {
@@ -135,7 +137,9 @@ public class Bombe {
 	}
 
 	public void setTailleFlamme(int tailleFlamme) {
-		this.tailleFlamme = tailleFlamme;
+		if(this.tailleFlamme < 10 && this.tailleFlamme >= 1 ) {
+			this.tailleFlamme = tailleFlamme;
+		}
 	}
 
 	public int getTypeFlamme() {
@@ -146,12 +150,12 @@ public class Bombe {
 		this.typeFlamme = typeFlamme;
 	}
 
-	public int getDelais() {
-		return delais;
+	public int getDelai() {
+		return delai;
 	}
 
-	public void setDelais(int delais) {
-		this.delais = delais;
+	public void setDelai(int delai) {
+		this.delai = delai;
 	}
 
 	public int getX() {
