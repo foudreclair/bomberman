@@ -238,6 +238,7 @@ public class Ig {
 	}
 
 	public void ecran_fin(Map map) {
+		StdAudio.play("/09-game-over.wav");
 		while (true) {
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
