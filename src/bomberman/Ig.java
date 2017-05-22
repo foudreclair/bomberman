@@ -33,14 +33,16 @@ public class Ig {
 	}
 
 	public void ecran_de_demarrage() {
-
+		
+		StdAudio.play("/01-title-screen.wav");
+		//Le StdAudio.close(); ne fonctionne pas :(
 		Font font_title = new Font("Arial", Font.BOLD, 50);
 		Font font = new Font("Arial", Font.CENTER_BASELINE, 30);
 		StdDraw.enableDoubleBuffering();
 		int exit = 0;
 		int control = 0;
 		while (true) {
-
+			
 			StdDraw.clear(StdDraw.GRAY);
 			StdDraw.setPenColor();
 			StdDraw.setFont(font_title);
@@ -97,13 +99,19 @@ public class Ig {
 				}
 
 			}
-
+			
 			StdDraw.show();
 			// StdDraw.pause(100);
 		}
 	}
 
 	public void ecran_de_jeu(Map mapcurrent) {
+		/**
+		 * Partie Audio
+		**/
+		StdAudio.close();
+		//StdAudio.play("/02-stage-start.wav");
+		//StdAudio.loop("/03-stage-theme.wav");
 		while (J1.getVie() != 0 && J2.getVie() != 0) {
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
