@@ -124,7 +124,7 @@ public class Ig {
 					} else if(map[y][x] == 4) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombup.png");
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombup_sprite.png");
 
 					}
 				}

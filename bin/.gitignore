@@ -1,5 +1,3 @@
-/bomberman/
-/title-screen.wav
 /01-title-screen.wav
 /02-stage-start.wav
 /03-stage-theme.wav
@@ -10,3 +8,4 @@
 /08-life-lost.wav
 /09-game-over.wav
 /10-ending.wav
+/bomberman/
