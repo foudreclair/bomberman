@@ -34,7 +34,7 @@ public class Ig {
 
 	public void ecran_de_demarrage() {
 		
-		StdAudio.play("/01-title-screen.wav");
+		StdAudio.loop("/01-title-screen.wav");
 		//Le StdAudio.close(); ne fonctionne pas :(
 		Font font_title = new Font("Arial", Font.BOLD, 50);
 		Font font = new Font("Arial", Font.CENTER_BASELINE, 30);
@@ -238,7 +238,7 @@ public class Ig {
 	}
 
 	public void ecran_fin(Map map) {
-		StdAudio.play("/09-game-over.wav");
+		StdAudio.loop("/09-game-over.wav");
 		while (true) {
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
