@@ -200,7 +200,7 @@ public class Ig {
 				J2.moveDown(J2, map);
 			}
 			
-			if (StdDraw.isKeyPressed(97)) {
+			if (StdDraw.isKeyPressed(77)) {
 				if (J2.getNbbombes() > 0 == true && map[J2.getY()][J2.getX()] != 3) {
 					J2.setNbbombes(J2.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
