@@ -90,7 +90,22 @@ public class Bombe {
 					if(randombonnus<=0.2){
 						int randomBonus = (int)(Math.random() * 6); 
 						nbBonus.add(new Bonus(b.getX() - i, b.getY(), randomBonus));
-						mapcurrent.setMap(b.getY(), b.getX()-i, 4);
+						switch (randomBonus) {
+						case 0:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+						case 1:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
+						case 2:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 6);
+						case 3:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 7);
+						case 4:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 8);
+						case 5:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 9);
+						default:
+							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+						}
 					}
 					break;
 				}
@@ -113,7 +128,22 @@ public class Bombe {
 					if(randombonnus<=0.2){
 						int randomBonus = (int)(Math.random() * 6); 
 						nbBonus.add(new Bonus(b.getX(), b.getY()+j, randomBonus));
-						mapcurrent.setMap(b.getY()+j, b.getX(), 4);
+						switch (randomBonus) {
+						case 0:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+						case 1:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 5);
+						case 2:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 6);
+						case 3:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 7);
+						case 4:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 8);
+						case 5:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 9);
+						default:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+						}
 					}
 					break;
 				}
@@ -140,7 +170,22 @@ public class Bombe {
 					if(randombonnus<=0.2){
 						int randomBonus = (int)(Math.random() * 6); 
 						nbBonus.add(new Bonus(b.getX(), b.getY()-j, randomBonus));
-						mapcurrent.setMap(b.getY()-j, b.getX(), 4);
+						switch (randomBonus) {
+						case 0:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+						case 1:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 5);
+						case 2:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 6);
+						case 3:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 7);
+						case 4:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 8);
+						case 5:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 9);
+						default:
+							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+						}
 					}
 					break;
 				}
