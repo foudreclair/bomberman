@@ -124,8 +124,27 @@ public class Ig {
 					} else if(map[y][x] == 4) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombup.png");
-
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/firedown_sprite.png");
+					}else if(map[y][x] == 5) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/fireup_sprite.png");
+					}else if(map[y][x] == 6) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/fullfire_sprite.png");
+					}else if(map[y][x] == 7) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/heat_sprite.png");
+					}else if(map[y][x] == 8) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombeup_sprite.png");
+					}else if(map[y][x] == 9) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombdown_sprite.png");
 					}
 				}
 			}
@@ -181,7 +200,7 @@ public class Ig {
 				J2.moveDown(J2, map);
 			}
 			
-			if (StdDraw.isKeyPressed(97)) {
+			if (StdDraw.isKeyPressed(77)) {
 				if (J2.getNbbombes() > 0 == true && map[J2.getY()][J2.getX()] != 3) {
 					J2.setNbbombes(J2.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
