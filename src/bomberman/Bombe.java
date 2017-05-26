@@ -50,19 +50,25 @@ public class Bombe {
 						nbBonus.add(new Bonus(b.getX() + i, b.getY(), randomBonus));
 						switch (randomBonus) {
 						case 0:
+							//flamme blue
 							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
 						case 1:
+							//flamme jaune
 							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
 						case 2:
+							//flamme rouge
 							mapcurrent.setMap(b.getY(), b.getX() + i, 6);
 						case 3:
+							//vie +1
 							mapcurrent.setMap(b.getY(), b.getX() + i, 7);
 						case 4:
+							//bombe +1
 							mapcurrent.setMap(b.getY(), b.getX() + i, 8);
 						case 5:
+							//bombe -1
 							mapcurrent.setMap(b.getY(), b.getX() + i, 9);
 						default:
-							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
 						}
 					}
 					break;

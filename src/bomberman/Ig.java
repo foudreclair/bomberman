@@ -124,8 +124,27 @@ public class Ig {
 					} else if(map[y][x] == 4) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombup_sprite.png");
-
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/firedown_sprite.png");
+					}else if(map[y][x] == 5) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/fireup_sprite.png");
+					}else if(map[y][x] == 6) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/fullfire_sprite.png");
+					}else if(map[y][x] == 7) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/heat_sprite.png");
+					}else if(map[y][x] == 8) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombeup_sprite.png");
+					}else if(map[y][x] == 9) {
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombdown_sprite.png");
 					}
 				}
 			}

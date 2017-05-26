@@ -5,7 +5,7 @@ import edu.princeton.cs.introcs.*;
 public class Map {
 			
 	private int[][]map_initial={
-			//0=Case indestructible, 1=Case destructible, 2=Case libre, 3= bombe
+			//0=Case indestructible, 1=Case destructible, 2=Case libre, 3= bombe, 4=flamme blue, 5=flamme jaune, 6=flamme rouge, 7=vieup, 8=bombe+1, 9=bombe-1
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
 			{0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0},

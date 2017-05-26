@@ -11,8 +11,6 @@ public class Bonus {
 	private int y;
 	
 	
-	
-	
 
 	public Bonus(int x, int y, int typeBonus) {
 		//Bonus flamme bleu
