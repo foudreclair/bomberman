@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+/bomberman/
+<<<<<<< HEAD
+=======
+/title-screen.wav
+>>>>>>> origin/master
 /01-title-screen.wav
 /02-stage-start.wav
 /03-stage-theme.wav
@@ -8,4 +15,8 @@
 /08-life-lost.wav
 /09-game-over.wav
 /10-ending.wav
+<<<<<<< HEAD
 /bomberman/
+=======
+>>>>>>> branch 'master' of https://github.com/foudreclair/bomberman
+>>>>>>> origin/master
