@@ -9,6 +9,7 @@ public class Bonus {
 	private int typeBonus;
 	private int x;
 	private int y;
+	private int passeMuraille;
 	
 	
 	

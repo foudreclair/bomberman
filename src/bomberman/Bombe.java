@@ -51,18 +51,25 @@ public class Bombe {
 						switch (randomBonus) {
 						case 0:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+							break;
 						case 1:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
+							break;
 						case 2:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 6);
+							break;
 						case 3:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 7);
+							break;
 						case 4:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 8);
+							break;
 						case 5:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 9);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+							break;
 						}
 					}
 					break;
@@ -93,18 +100,25 @@ public class Bombe {
 						switch (randomBonus) {
 						case 0:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+							break;
 						case 1:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
+							break;
 						case 2:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 6);
+							break;
 						case 3:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 7);
+							break;
 						case 4:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 8);
+							break;
 						case 5:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 9);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 4);
+							break;
 						}
 					}
 					break;
@@ -131,18 +145,25 @@ public class Bombe {
 						switch (randomBonus) {
 						case 0:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+							break;
 						case 1:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 5);
+							break;
 						case 2:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 6);
+							break;
 						case 3:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 7);
+							break;
 						case 4:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 8);
+							break;
 						case 5:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 9);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+							break;
 						}
 					}
 					break;
@@ -170,21 +191,30 @@ public class Bombe {
 					if(randombonnus<=0.2){
 						int randomBonus = (int)(Math.random() * 6); 
 						nbBonus.add(new Bonus(b.getX(), b.getY()-j, randomBonus));
+						System.out.println("Random " + randomBonus);
 						switch (randomBonus) {
 						case 0:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+							break;
 						case 1:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 5);
+							break;
 						case 2:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 6);
+							break;
+
 						case 3:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 7);
+							break;
 						case 4:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 8);
+							break;
 						case 5:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 9);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + j, 4);
+							break;
 						}
 					}
 					break;
