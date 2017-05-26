@@ -136,7 +136,7 @@ public class Ig {
 					}else if(map[y][x] == 7) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
-						StdDraw.picture(x+ 0.5, y + 0.5, "images/heat_sprite.png");
+						StdDraw.picture(x+ 0.5, y + 0.5, "images/heart_sprite.png");
 					}else if(map[y][x] == 8) {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
