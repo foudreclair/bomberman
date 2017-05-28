@@ -105,6 +105,18 @@ public class Ig {
 	}
 
 	public void ecran_de_jeu(Map mapcurrent) {
+		// Initialisation de la map 
+		//Replacement joueur
+		J1.setX(1);;
+		J2.setX(19);
+		J1.setY(1);
+		J2.setY(15);
+		mapcurrent.resetMap();
+		/*for (int y = 0; y < L; y++) {
+			for (int x = 0; x < l; x++) {
+				
+			}
+		}*/
 		while (J1.getVie() != 0 && J2.getVie() != 0) {
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
@@ -113,35 +125,44 @@ public class Ig {
 			for (int y = 0; y < L; y++) {
 				for (int x = 0; x < l; x++) {
 					if (map[y][x] == 0) {
+						//Bloc indestructible 
 						StdDraw.setPenColor(StdDraw.GRAY);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 					} else if (map[y][x] == 1) {
+						//Bloc destructible
 						StdDraw.setPenColor(StdDraw.ORANGE);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 					} else if (map[y][x] == 2 || map[y][x] == 3) {
+						//Gazon
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 					} else if(map[y][x] == 4) {
+						//Flamme bleu
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/firedown_sprite.png");
 					}else if(map[y][x] == 5) {
+						//Flamme jaune
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/fireup_sprite.png");
 					}else if(map[y][x] == 6) {
 						StdDraw.setPenColor(StdDraw.GREEN);
+						//Flamme rouge 
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/fullfire_sprite.png");
 					}else if(map[y][x] == 7) {
 						StdDraw.setPenColor(StdDraw.GREEN);
+						//Bonus vie +1 
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/heart_sprite.png");
 					}else if(map[y][x] == 8) {
 						StdDraw.setPenColor(StdDraw.GREEN);
+						//Bonus +1 bombe
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombeup_sprite.png");
 					}else if(map[y][x] == 9) {
+						//Bonus -1 bombe
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x+ 0.5, y + 0.5, "images/bombdown_sprite.png");
@@ -164,7 +185,7 @@ public class Ig {
 					}
 				}	
 			}
-			// keycodes d = 68, q=81, z=90, s=83, f=70
+			// keycodes J1
 			if (StdDraw.isKeyPressed(68)) {
 				J1.moveRight(J1, map);
 			}
@@ -178,7 +199,7 @@ public class Ig {
 				J1.moveDown(J1, map);
 			}
 			if (StdDraw.isKeyPressed(70)) {
-				if (J1.getNbbombes() > 0 && map[J1.getY()][J1.getX()] != 3) {
+				if (J1.getNbbombes() > 0) {
 					J1.setNbbombes(J1.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J1.getX(), J1.getY(), J1));
 					System.out.println("Le joueur " + J1.getNom() + " pose une bombe");
@@ -186,7 +207,7 @@ public class Ig {
 					System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
 				}
 			}
-			// keycodes J2 0 = 48
+			// keycodes J2 
 			if (StdDraw.isKeyPressed(39)) {
 				J2.moveRight(J2, map);
 			}
@@ -201,7 +222,8 @@ public class Ig {
 			}
 			
 			if (StdDraw.isKeyPressed(77)) {
-				if (J2.getNbbombes() > 0 == true && map[J2.getY()][J2.getX()] != 3) {
+				System.out.println(J2.getNbbombes());
+				if (J2.getNbbombes() > 0 == true) {
 					J2.setNbbombes(J2.getNbbombes() - 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
 					System.out.println("Le joueur " + J2.getNom() + " pose une bombe");
@@ -209,6 +231,7 @@ public class Ig {
 					System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
 				}
 			}
+			
 			//On affiche les bombes et les explosent
 			if (nbBombes.size() != 0) {
 				for (int i = 0; i < nbBombes.size(); i++) {
@@ -230,8 +253,8 @@ public class Ig {
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			StdDraw.setPenColor(StdDraw.WHITE);
-			StdDraw.text(2+0.5, 16+0.5, "Joueur 1 : "+J1.getNbbombes());
-			StdDraw.text(17+0.5, 16+0.5, "Joueur 2 : "+J2.getNbbombes());
+			StdDraw.text(2+0.5, 16+0.5, "Vie 1 : "+J1.getVie());
+			StdDraw.text(17+0.5, 16+0.5, "Vie 2 : "+J2.getVie());
 
 			
 			StdDraw.show();
