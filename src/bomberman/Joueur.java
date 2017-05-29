@@ -5,7 +5,11 @@ public class Joueur{
 	
 	private String nom;
 	private int vie;
+	//Nombres de bombes total
 	private int nbbombes;
+	//Nombre de bombes posés
+	private int counterbombes;
+	
 	private int typebombes;
 	private int tailleFlamme;
 	private int delai;
@@ -21,6 +25,7 @@ public class Joueur{
 		this.nbbombes = 3;
 		this.typebombes = 1;
 		this.tailleFlamme = 3;
+		this.counterbombes = 0;
 		this.setDelai(4000);	
 	}
 	
@@ -78,7 +83,7 @@ public class Joueur{
 		return nbbombes;
 	}
 	public void setNbbombes(int nbbombes){
-		if(this.nbbombes <= 7 && this.nbbombes > 0) {
+		if(this.nbbombes <= 7 && this.nbbombes > 1) {
 			this.nbbombes=nbbombes;
 		}
 		
@@ -118,6 +123,21 @@ public class Joueur{
 
 	public void setDelai(int delai) {
 		this.delai = delai;
+	}
+	
+	public void reset() {
+		this.nbbombes = 3;
+		this.typebombes = 1;
+		this.tailleFlamme = 3;
+		this.setDelai(4000);	
+	}
+
+	public int getCounterbombes() {
+		return counterbombes;
+	}
+
+	public void setCounterbombes(int counterbombes) {
+		this.counterbombes = counterbombes;
 	}
 	
 		

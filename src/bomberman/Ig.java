@@ -111,7 +111,8 @@ public class Ig {
 		J2.setX(19);
 		J1.setY(1);
 		J2.setY(15);
-		mapcurrent.resetMap();
+		J1.reset();
+		J2.reset();
 		/*for (int y = 0; y < L; y++) {
 			for (int x = 0; x < l; x++) {
 				
@@ -199,9 +200,11 @@ public class Ig {
 				J1.moveDown(J1, map);
 			}
 			if (StdDraw.isKeyPressed(70)) {
-				if (J1.getNbbombes() > 0) {
-					J1.setNbbombes(J1.getNbbombes() - 1);
+				if (J1.getCounterbombes()  < J1.getNbbombes() && map[J1.getY()][J1.getX()] != 3) {
+					J1.setCounterbombes(J1.getCounterbombes() + 1);
 					nbBombes.add(new Bombe(J1.getX(), J1.getY(), J1));
+					 //On met le type de la map en type bombe
+					mapcurrent.setMap(J1.getY(), J1.getX(), 3);
 					System.out.println("Le joueur " + J1.getNom() + " pose une bombe");
 				} else {
 					System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
@@ -222,10 +225,11 @@ public class Ig {
 			}
 			
 			if (StdDraw.isKeyPressed(77)) {
-				System.out.println(J2.getNbbombes());
-				if (J2.getNbbombes() > 0 == true) {
-					J2.setNbbombes(J2.getNbbombes() - 1);
+				if (J2.getCounterbombes() < J2.getNbbombes() && map[J2.getY()][J2.getX()] != 3) {
+					J2.setCounterbombes(J2.getCounterbombes() + 1);
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
+					 //On met le type de la map en type bombe
+					mapcurrent.setMap(J2.getY(), J2.getX(), 3);
 					System.out.println("Le joueur " + J2.getNom() + " pose une bombe");
 				} else {
 					System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
@@ -236,13 +240,11 @@ public class Ig {
 			if (nbBombes.size() != 0) {
 				for (int i = 0; i < nbBombes.size(); i++) {
 					StdDraw.picture(nbBombes.get(i).getX() + 0.5, nbBombes.get(i).getY() + 0.5, "images/bomb0.png");
-			        //On met le type de la map en type bombe
-					mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 3);
 			        if(nbBombes.get(i).exploser(nbBombes.get(i), mapcurrent, J1, J2, nbBonus)== true) {
 				        //Une fois que la bombe explose on change le type de la map
 			        	mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 2);
 				        //On remet une bombe au joueur
-			        	nbBombes.get(i).getJoueur().setNbbombes(nbBombes.get(i).getJoueur().getNbbombes() + 1);
+			        	nbBombes.get(i).getJoueur().setCounterbombes(nbBombes.get(i).getJoueur().getCounterbombes() - 1);
 			        	//on retire la bombe du tableau
 			        	nbBombes.remove(i);
 					}	
