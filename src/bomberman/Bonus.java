@@ -4,6 +4,7 @@ package bomberman;
 public class Bonus {
 	private int vie;
 	private int nbBombes;
+	private int typeBombes;
 	private int tailleFlamme;
 	private int delai;
 	private int typeBonus;
@@ -37,6 +38,11 @@ public class Bonus {
 		if(typeBonus == 5) {
 			this.nbBombes = -2;
 		}
+		//Bombe rouge
+		/*
+		if(typeBonus == 6) {
+			this.typeBombes = 2;
+		}*/
 		this.typeBonus = typeBonus;
 		this.x = x;
 		this.y = y;
@@ -49,11 +55,10 @@ public class Bonus {
 		joueur.setVie(joueur.getVie() + this.vie);
 		//Nombres de bombes !
 		joueur.setNbbombes(joueur.getNbbombes() + this.nbBombes);
+		//Type de bombes
+	//	joueur.setTypebombes(this.typeBombes);
 	}
 	
-	public void AfficherBonus() {
-		
-	}
 	
 	public int getNbBombes() {
 		return nbBombes;
@@ -102,5 +107,13 @@ public class Bonus {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public int getTypeBombes() {
+		return typeBombes;
+	}
+
+	public void setTypeBombes(int typeBombes) {
+		this.typeBombes = typeBombes;
 	}
 }
