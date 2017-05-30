@@ -39,10 +39,9 @@ public class Bonus {
 			this.nbBombes = -1;
 		}
 		//Bombe rouge
-		/*
 		if(typeBonus == 6) {
 			this.typeBombes = 2;
-		}*/
+		} 
 		this.typeBonus = typeBonus;
 		this.x = x;
 		this.y = y;
@@ -56,7 +55,7 @@ public class Bonus {
 		//Nombres de bombes !
 		joueur.setNbbombes(joueur.getNbbombes() + this.nbBombes);
 		//Type de bombes
-	//	joueur.setTypebombes(this.typeBombes);
+		joueur.setTypebombes(this.typeBombes);
 	}
 	
 	
