@@ -113,11 +113,11 @@ public class Ig {
 		J2.setY(15);
 		J1.reset();
 		J2.reset();
-		/*for (int y = 0; y < L; y++) { 
+		for (int y = 0; y < L; y++) { 
 		  for (int x = 0; x < l; x++) {
 			  mapcurrent.resetMap(y,x);
 		  }
-		}*/
+		}
 		if(nbBombes.size() != 0) {
 			for(int i = 0;i<nbBombes.size();i++) {
 				nbBombes.remove(i);
@@ -276,13 +276,20 @@ public class Ig {
 				}
 
 			}
+			
+			//Affichages des personnages
 			StdDraw.pause(50);
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
+			
+			//Realisation de l'HUD
 			StdDraw.setPenColor(StdDraw.WHITE);
-			StdDraw.text(2 + 0.5, 16 + 0.5, "Vie 1 : " + J1.getVie());
-			StdDraw.text(17 + 0.5, 16 + 0.5, "Vie 2 : " + J2.getVie());
-
+			StdDraw.text(3 , 17 + 0.5, "Vie : " + J1.getVie());
+			StdDraw.text(19 + 0.5, 17 + 0.5, "Vie : " + J2.getVie());
+			StdDraw.text(3+0.5 , 16 + 0.5, "Bombes : " + (J1.getNbbombes()-J1.getCounterbombes()));
+			StdDraw.text(19 , 16 + 0.5, "Bombes : " + (J2.getNbbombes()-J2.getCounterbombes()));
+			StdDraw.text(21 + 0.5, 16 + 0.5, "J2");
+			StdDraw.text(1 , 16 + 0.5, "J1");
 			StdDraw.show();
 		}
 
