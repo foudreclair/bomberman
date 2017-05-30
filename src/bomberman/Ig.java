@@ -13,14 +13,14 @@ public class Ig {
 	// dimension
 	public int N = 50;
 	// l est la longeur
-	public int l = 21;
+	public int l = 23;
 	// L est la largeur
-	public int L = 17;
+	public int L = 18;
 	public ArrayList<Bombe> nbBombes = new ArrayList();
 	public ArrayList<Bonus> nbBonus = new ArrayList();
 
-	Joueur J1 = new Joueur("J1", 1, 1);
-	Joueur J2 = new Joueur("J2", 19, 15);
+	Joueur J1 = new Joueur("J1", 2, 1);
+	Joueur J2 = new Joueur("J2", 20, 15);
 
 	public void intialisation_ecran() {
 
@@ -85,7 +85,7 @@ public class Ig {
 				StdDraw.text(17, 10, "◄ : Move Left");
 				StdDraw.text(17, 9, "▼: Move Down");
 				StdDraw.text(17, 8, "► : Move Right");
-				StdDraw.text(17, 6, "0 : Use Bombe");
+				StdDraw.text(17, 6, "M : Use Bombe");
 				StdDraw.picture(17, 3, "images/bomferman_player.png");
 				StdDraw.text(11, 2, "Return");
 				StdDraw.pause(80);
@@ -105,21 +105,29 @@ public class Ig {
 
 	public void ecran_de_jeu(Map mapcurrent) {
 		// Initialisation de la map
+		boolean stop=true;
 		// Replacement joueur
-		J1.setX(1);
-		;
-		J2.setX(19);
+		J1.setX(2);
+		J2.setX(20);
 		J1.setY(1);
 		J2.setY(15);
 		J1.reset();
 		J2.reset();
-		mapcurrent.resetMap();
-		/*
-		 * for (int y = 0; y < L; y++) { for (int x = 0; x < l; x++) {
-		 * 
-		 * } }
-		 */
-		while (J1.getVie() != 0 && J2.getVie() != 0) {
+		/*for (int y = 0; y < L; y++) { 
+		  for (int x = 0; x < l; x++) {
+			  mapcurrent.resetMap(y,x);
+		  }
+		}*/
+		if(nbBombes.size() != 0) {
+			for(int i = 0;i<nbBombes.size();i++) {
+				nbBombes.remove(i);
+			}
+		}
+		
+		while (stop) {
+			if( J1.getVie() <= 0 || J2.getVie() <= 0){
+				stop=false; 
+			}
 			int[][] map = mapcurrent.getMap();
 			// Colorisation de la map
 			StdDraw.enableDoubleBuffering();
@@ -298,7 +306,7 @@ public class Ig {
 				if (StdDraw.mousePressed()) {
 					J1.setVie(3);
 					J2.setVie(3);
-					map.resetMap();
+					StdDraw.pause(100);
 					ecran_de_jeu(map);
 				}
 			}
