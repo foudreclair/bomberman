@@ -295,6 +295,30 @@ public class Ig {
 			StdDraw.text(19 , 16 + 0.5, "Bombes : " + (J2.getNbbombes()-J2.getCounterbombes()));
 			StdDraw.text(21 + 0.5, 16 + 0.5, "J2");
 			StdDraw.text(1 , 16 + 0.5, "J1");
+			StdDraw.picture(21+0.5, 14.5, "images/fireup_sprite.png");
+			StdDraw.text(22.5, 14.5, ""+J2.getTailleFlamme());
+			StdDraw.picture(1.5, 14.5, "images/fireup_sprite.png");
+			StdDraw.text(0.5, 14.5, ""+J1.getTailleFlamme());
+			StdDraw.picture(1.5, 12.5, "images/RedBombsprite.png");
+			if(J1.getTypebombes()==1){
+				StdDraw.setPenColor(StdDraw.GRAY);
+				StdDraw.filledSquare(0.5, 12.5, 0.5);
+			}
+			if(J1.getTypebombes()==2){
+				StdDraw.setPenColor(StdDraw.GREEN);
+				StdDraw.filledSquare(0.5, 12.5, 0.5);
+			}
+			StdDraw.picture(21.5, 12.5, "images/RedBombsprite.png");
+			if(J2.getTypebombes()==1){
+				StdDraw.setPenColor(StdDraw.GRAY);
+				StdDraw.filledSquare(22.5, 12.5, 0.5);
+			}
+			if(J2.getTypebombes()==2){
+				StdDraw.setPenColor(StdDraw.GREEN);
+				StdDraw.filledSquare(22.5, 12.5, 0.5);
+			}
+			
+			//SHOWTIME !!
 			StdDraw.show();
 		}
 
@@ -304,6 +328,7 @@ public class Ig {
 		while (true) {
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
+			StdDraw.setPenColor(StdDraw.WHITE);
 			if (J1.getVie() == 0) {
 				StdDraw.text(11, 13, "Le joueur " + J2.getNom() + " a gagné !");
 			}
