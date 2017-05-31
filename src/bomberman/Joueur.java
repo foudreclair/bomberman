@@ -91,7 +91,12 @@ public class Joueur{
 		return typebombes;
 	}
 	public void setTypebombes(int typebombes){
-		this.typebombes= typebombes;
+		if(typebombes == 2) {
+			this.typebombes= typebombes;
+		}
+		else if(typebombes == 1) {
+			this.typebombes= typebombes;
+		}
 	}
 	public int getX(){
 		return x;
@@ -111,7 +116,7 @@ public class Joueur{
 	}
 
 	public void setTailleFlamme(int tailleFlamme) {
-		if(this.tailleFlamme <= 10 && this.tailleFlamme >= 1) {
+		if(this.tailleFlamme < 10 && this.tailleFlamme > 1) {
 			this.tailleFlamme = tailleFlamme;
 		}
 	}

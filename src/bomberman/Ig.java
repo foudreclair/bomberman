@@ -176,6 +176,11 @@ public class Ig {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x + 0.5, y + 0.5, "images/bombdown_sprite.png");
+					} else if(map[y][x] == 10) {
+						// Bonus bombe rouge
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x + 0.5, y + 0.5, "images/RedBombsprite.png");
 					}
 				}
 			}
@@ -260,9 +265,9 @@ public class Ig {
 							// on retire la bombe du tableau
 							nbBombes.remove(i);
 						}
-					}/*
-					else {
-						if (nbBombes.get(i).exploserRouge(nbBombes.get(i), mapcurrent, J1, J2, nbBonus) == true) {
+					}
+					else if (nbBombes.get(i).getJoueur().getTypebombes() == 2){
+						if (nbBombes.get(i).exploserRouge(nbBombes.get(i), mapcurrent, J1, J2, nbBonus, nbBombes) == true) {
 							// Une fois que la bombe explose on change le type
 							// de la map
 							mapcurrent.setMap(nbBombes.get(i).getY(), nbBombes.get(i).getX(), 2);
@@ -272,13 +277,13 @@ public class Ig {
 							// on retire la bombe du tableau
 							nbBombes.remove(i);
 						}
-					}*/
+					}
 				}
 
 			}
 			
 			//Affichages des personnages
-			StdDraw.pause(50);
+			StdDraw.pause(70);
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			
