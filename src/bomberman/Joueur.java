@@ -64,7 +64,6 @@ public class Joueur{
 		}
 	}
 	
-	
 	//Getters&Setters
 	public String getNom(){
 		return nom;
