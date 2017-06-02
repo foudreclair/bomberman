@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import edu.princeton.cs.introcs.*;
 
 public class Ig {
-
+	
+	//Init logger
+	org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Ig.class);
 	// Déclaration de la taille de la map
 
 	// N est un nombre arbitrairement choisie pour faire une fenêtre de la bonne
@@ -189,7 +191,7 @@ public class Ig {
 			if (nbBonus.size() != 0) {
 				for (int i = 0; i < nbBonus.size(); i++) {
 					if (nbBonus.get(i).getX() == J1.getX() && nbBonus.get(i).getY() == J1.getY()) {
-						System.out.println("BONUS" + nbBonus.get(i).getTypeBonus());
+						logger.info("BONUS" + nbBonus.get(i).getTypeBonus());
 						nbBonus.get(i).ApplyBonus(J1);
 						mapcurrent.setMap(nbBonus.get(i).getY(), nbBonus.get(i).getX(), 2);
 						nbBonus.remove(i);
@@ -219,9 +221,9 @@ public class Ig {
 					nbBombes.add(new Bombe(J1.getX(), J1.getY(), J1));
 					// On met le type de la map en type bombe
 					mapcurrent.setMap(J1.getY(), J1.getX(), 3);
-					System.out.println("Le joueur " + J1.getNom() + " pose une bombe");
+					logger.info("Le joueur " + J1.getNom() + " pose une bombe");
 				} else {
-					System.out.println("Le joueur " + J1.getNom() + " n'a plus de bombes !");
+					logger.info("Le joueur " + J1.getNom() + " n'a plus de bombes !");
 				}
 			}
 			// keycodes J2
@@ -244,9 +246,9 @@ public class Ig {
 					nbBombes.add(new Bombe(J2.getX(), J2.getY(), J2));
 					// On met le type de la map en type bombe
 					mapcurrent.setMap(J2.getY(), J2.getX(), 3);
-					System.out.println("Le joueur " + J2.getNom() + " pose une bombe");
+					logger.info("Le joueur " + J2.getNom() + " pose une bombe");
 				} else {
-					System.out.println("Le joueur " + J2.getNom() + " n'a plus de bombes !");
+					logger.info("Le joueur " + J2.getNom() + " n'a plus de bombes !");
 				}
 			}
 
