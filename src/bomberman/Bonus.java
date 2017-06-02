@@ -32,11 +32,11 @@ public class Bonus {
 		}
 		//Bombe plus
 		if(typeBonus == 4) {
-			this.nbBombes = 1;
+			this.nbBombes = 2;
 		}
 		//Bombe moins
 		if(typeBonus == 5) {
-			this.nbBombes = -1;
+			this.nbBombes = -2;
 		}
 		//Bombe rouge
 		if(typeBonus == 6) {

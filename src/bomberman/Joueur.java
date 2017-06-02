@@ -83,7 +83,7 @@ public class Joueur{
 		return nbbombes;
 	}
 	public void setNbbombes(int nbbombes){
-		if(this.nbbombes <= 7 && this.nbbombes >= 1) {
+		if(this.nbbombes <= 7 && this.nbbombes >= 2	) {
 			this.nbbombes= this.nbbombes + nbbombes;
 		}
 		
