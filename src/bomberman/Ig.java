@@ -329,10 +329,10 @@ public class Ig {
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
 			StdDraw.setPenColor(StdDraw.WHITE);
-			if (J1.getVie() == 0) {
+			if (J1.getVie() <= 0) {
 				StdDraw.text(11, 13, "Le joueur " + J2.getNom() + " a gagné !");
 			}
-			if (J2.getVie() == 0) {
+			if (J2.getVie() <= 0) {
 				StdDraw.text(11, 13, "Le joueur " + J1.getNom() + " a gagné !");
 			}
 			StdDraw.picture(11, 9, "images/victory.png");
