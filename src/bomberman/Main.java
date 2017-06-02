@@ -6,9 +6,6 @@ import edu.princeton.cs.introcs.StdAudio;
 public class Main {
 	
 	public static void main(String[] args){
-		/* Gal�re!!!!
-		 * StdAudio.play("title-screen.wav");
-		 */
 		Map map = new Map();
 		Ig bomberman =new Ig();
 		bomberman.intialisation_ecran();

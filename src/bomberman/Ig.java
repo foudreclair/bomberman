@@ -287,7 +287,7 @@ public class Ig {
 			StdDraw.picture(J1.getX() + 0.5, J1.getY() + 0.5, "images/bomberman_player.png");
 			StdDraw.picture(J2.getX() + 0.5, J2.getY() + 0.5, "images/bomferman_player.png");
 			
-			//Realisation de l'HUD
+			//Realisation de l'indicateur de bonus par joueur
 			StdDraw.setPenColor(StdDraw.WHITE);
 			StdDraw.text(3 , 17 + 0.5, "Vie : " + J1.getVie());
 			StdDraw.text(19 + 0.5, 17 + 0.5, "Vie : " + J2.getVie());
