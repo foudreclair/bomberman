@@ -49,11 +49,11 @@ public class Bonus {
 	
 	public void ApplyBonus(Joueur joueur) {
 		//Taille flamme
-		joueur.setTailleFlamme(joueur.getTailleFlamme() + this.tailleFlamme);
+		joueur.setTailleFlamme(this.tailleFlamme);
 		//Vie
 		joueur.setVie(joueur.getVie() + this.vie);
 		//Nombres de bombes !
-		joueur.setNbbombes(joueur.getNbbombes() + this.nbBombes);
+		joueur.setNbbombes(this.nbBombes);
 		//Type de bombes
 		joueur.setTypebombes(this.typeBombes);
 	}

@@ -83,8 +83,8 @@ public class Joueur{
 		return nbbombes;
 	}
 	public void setNbbombes(int nbbombes){
-		if(this.nbbombes <= 7 && this.nbbombes > 1) {
-			this.nbbombes=nbbombes;
+		if(this.nbbombes <= 7 && this.nbbombes >= 1) {
+			this.nbbombes= this.nbbombes + nbbombes;
 		}
 		
 	}
@@ -118,8 +118,14 @@ public class Joueur{
 
 	public void setTailleFlamme(int tailleFlamme) {
 		if(this.tailleFlamme < 10 && this.tailleFlamme > 1) {
-			this.tailleFlamme = tailleFlamme;
+			if(tailleFlamme == 10) {
+				this.tailleFlamme = tailleFlamme;
+			}
+			else {
+				this.tailleFlamme = this.tailleFlamme + tailleFlamme;
+			}
 		}
+		
 	}
 
 	public int getDelai() {
