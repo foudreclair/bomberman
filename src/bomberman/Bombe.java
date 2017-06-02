@@ -582,6 +582,8 @@ public class Bombe {
 		}
 		return exploser;
 	}
+	
+
 
 	public int getDelai() {
 		return delai;
