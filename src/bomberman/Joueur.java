@@ -117,12 +117,16 @@ public class Joueur{
 	}
 
 	public void setTailleFlamme(int tailleFlamme) {
-		if(this.tailleFlamme < 10 && this.tailleFlamme > 1) {
+		if(this.tailleFlamme <= 10 && this.tailleFlamme > 1) {
 			if(tailleFlamme == 10) {
 				this.tailleFlamme = tailleFlamme;
 			}
 			else {
-				this.tailleFlamme = this.tailleFlamme + tailleFlamme;
+				if(tailleFlamme > 0 && this.tailleFlamme == 10) {
+					
+				} else {
+					this.tailleFlamme = this.tailleFlamme + tailleFlamme;
+				}
 			}
 		}
 		
