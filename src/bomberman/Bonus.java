@@ -16,11 +16,11 @@ public class Bonus {
 	public Bonus(int x, int y, int typeBonus) {
 		//Bonus flamme bleu
 		if(typeBonus == 0) {
-			this.tailleFlamme = this.tailleFlamme -1;
+			this.tailleFlamme = -1;
 		}
 		//Bonus flamme jaune
 		if(typeBonus == 1) {
-			this.tailleFlamme = this.tailleFlamme + 1;
+			this.tailleFlamme = 1;
 		}
 		//Bonus flamme rouge
 		if(typeBonus == 2) {
@@ -42,6 +42,12 @@ public class Bonus {
 		if(typeBonus == 6) {
 			this.typeBombes = 2;
 		} 
+		//Flamme verte
+		if(typeBonus == 7){
+			this.delai = -1000;
+			this.tailleFlamme = 1;
+		}
+		
 		this.typeBonus = typeBonus;
 		this.x = x;
 		this.y = y;
@@ -56,6 +62,10 @@ public class Bonus {
 		joueur.setNbbombes(this.nbBombes);
 		//Type de bombes
 		joueur.setTypebombes(this.typeBombes);
+		//Delai d'explosion
+		if(this.delai == -1000) {
+			joueur.setDelai(this.delai);
+		}
 	}
 	
 	

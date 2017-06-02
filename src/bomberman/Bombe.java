@@ -52,7 +52,7 @@ public class Bombe {
 					 * bonnus
 					 */
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX() + i, b.getY(), randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -81,6 +81,9 @@ public class Bombe {
 							break;
 						case 6: 
 							mapcurrent.setMap(b.getY(), b.getX() + i, 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY(), b.getX() + i, 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
@@ -118,7 +121,7 @@ public class Bombe {
 					StdDraw.picture(b.getX() - i + 0.5, b.getY() + 0.5, "images/explosion_hori.png");
 					mapcurrent.setMap(y, x - i, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 6);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX() - i, b.getY(), randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -141,6 +144,9 @@ public class Bombe {
 							break;
 						case 6:
 							mapcurrent.setMap(b.getY(), b.getX() - i, 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY(), b.getX() - i, 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() - i, 4);
@@ -166,7 +172,7 @@ public class Bombe {
 					StdDraw.picture(b.getX() + 0.5, b.getY() + j + 0.5, "images/explosion_vert.png");
 					mapcurrent.setMap(y + j, x, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX(), b.getY() + j, randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -189,6 +195,9 @@ public class Bombe {
 							break;
 						case 6:
 							mapcurrent.setMap(b.getY() + j, b.getX(), 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY()+ j, b.getX(), 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY() + j, b.getX(), 4);
@@ -226,7 +235,7 @@ public class Bombe {
 					StdDraw.picture(b.getX() + 0.5, b.getY() - j + 0.5, "images/explosion_vert.png");
 					mapcurrent.setMap(y - j, x, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX(), b.getY() - j, randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -249,6 +258,9 @@ public class Bombe {
 							break;
 						case 6:
 							mapcurrent.setMap(b.getY() - j, b.getX(), 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY() - j, b.getX(), 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY() - j, b.getX() + j, 4);
@@ -322,7 +334,7 @@ public class Bombe {
 					 * bonnus
 					 */
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX() + i, b.getY(), randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -352,6 +364,9 @@ public class Bombe {
 						case 6:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 10);
 							break;
+						case 7: 
+							mapcurrent.setMap(b.getY(), b.getX() + i, 11);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() + i, 5);
 							break;
@@ -379,7 +394,7 @@ public class Bombe {
 				if (map[y][x - i] == 1) {
 					mapcurrent.setMap(y, x - i, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX() - i, b.getY(), randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -403,6 +418,9 @@ public class Bombe {
 						case 6:
 							mapcurrent.setMap(b.getY(), b.getX() - i, 10);
 							break;
+						case 7: 
+							mapcurrent.setMap(b.getY(), b.getX() - i, 11);
+							break;
 						default:
 							mapcurrent.setMap(b.getY(), b.getX() - i, 4);
 							break;
@@ -420,7 +438,7 @@ public class Bombe {
 				if (map[y + j][x] == 1) {
 					mapcurrent.setMap(y + j, x, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX(), b.getY() + j, randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -443,6 +461,9 @@ public class Bombe {
 							break;
 						case 6:
 							mapcurrent.setMap(b.getY() + j, b.getX(), 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY() + j, b.getX(), 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY() + j, b.getX(), 4);
@@ -471,7 +492,7 @@ public class Bombe {
 				if (map[y - j][x] == 1) {
 					mapcurrent.setMap(y - j, x, 2);
 					if (randombonnus <= 0.2) {
-						int randomBonus = (int) (Math.random() * 7);
+						int randomBonus = (int) (Math.random() * 8);
 						nbBonus.add(new Bonus(b.getX(), b.getY() - j, randomBonus));
 						switch (randomBonus) {
 						case 0:
@@ -494,6 +515,9 @@ public class Bombe {
 							break;
 						case 6:
 							mapcurrent.setMap(b.getY() - j, b.getX(), 10);
+							break;
+						case 7: 
+							mapcurrent.setMap(b.getY() - j, b.getX(), 11);
 							break;
 						default:
 							mapcurrent.setMap(b.getY() - j, b.getX() + j, 4);

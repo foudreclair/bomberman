@@ -181,6 +181,11 @@ public class Ig {
 						StdDraw.setPenColor(StdDraw.GREEN);
 						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
 						StdDraw.picture(x + 0.5, y + 0.5, "images/RedBombsprite.png");
+					} else if(map[y][x] == 11) {
+						// Bonus bombe rouge
+						StdDraw.setPenColor(StdDraw.GREEN);
+						StdDraw.filledSquare(x + 0.5, y + 0.5, 0.5);
+						StdDraw.picture(x + 0.5, y + 0.5, "images/diamant_vert.png");
 					}
 				}
 			}

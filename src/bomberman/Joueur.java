@@ -133,7 +133,12 @@ public class Joueur{
 	}
 
 	public void setDelai(int delai) {
-		this.delai = delai;
+		if(delai == -1000 && this.delai > 3000) {
+			this.delai = this.delai + delai;
+		}
+		else if(delai != -1000) {
+			this.delai = delai;
+		}
 	}
 	
 	public void reset() {
