@@ -39,7 +39,7 @@ public class Ig {
 		Font font_title = new Font("Arial", Font.BOLD, 50);
 		Font font = new Font("Arial", Font.CENTER_BASELINE, 30);
 		StdDraw.enableDoubleBuffering();
-		int exit = 0;
+		StdAudio.play("/01-title-screen.wav");
 		int control = 0;
 		while (true) {
 
@@ -103,6 +103,7 @@ public class Ig {
 			StdDraw.show();
 			// StdDraw.pause(100);
 		}
+		StdAudio.close();
 	}
 
 	public void ecran_de_jeu(Map mapcurrent) {
@@ -124,6 +125,7 @@ public class Ig {
 			nbBombes.clear();
 		}
 		
+		StdAudio.play("/03-stage-theme.wav");
 		while (stop) {
 			if( J1.getVie() <= 0 || J2.getVie() <= 0){
 				stop=false; 
