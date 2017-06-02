@@ -10,7 +10,6 @@ public class Joueur{
 	private int nbbombes;
 	//Nombre de bombes posés
 	private int counterbombes;
-	
 	private int typebombes;
 	private int tailleFlamme;
 	private int delai;
@@ -69,10 +68,6 @@ public class Joueur{
 	public String getNom(){
 		return nom;
 	}
-	//Pour moi elle est inutile
-	public void setNom(String nom){
-		this.nom =nom;
-	}
 	public int getVie(){
 		return vie;
 	}
@@ -83,10 +78,9 @@ public class Joueur{
 		return nbbombes;
 	}
 	public void setNbbombes(int nbbombes){
-		if(this.nbbombes <= 7 && this.nbbombes >= 2	) {
+		if(this.nbbombes <= 7 && this.nbbombes >= 1) {
 			this.nbbombes= this.nbbombes + nbbombes;
 		}
-		
 	}
 	public int getTypebombes(){
 		return typebombes;
@@ -129,7 +123,6 @@ public class Joueur{
 				}
 			}
 		}
-		
 	}
 
 	public int getDelai() {
