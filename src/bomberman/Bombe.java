@@ -9,8 +9,6 @@ public class Bombe {
 
 	private int x;
 	private int y;
-	private int tailleFlamme;
-	private int typeFlamme;
 	private int delai;
 	private Joueur joueur;
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -18,9 +16,7 @@ public class Bombe {
 	public Bombe(int x, int y, Joueur joueur) {
 		this.x = x;
 		this.y = y;
-		this.tailleFlamme = joueur.getTailleFlamme();
 		this.delai = joueur.getDelai();
-		this.typeFlamme = 0;
 		this.joueur = joueur;
 	}
 
@@ -33,7 +29,7 @@ public class Bombe {
 		Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
 		if (currentTimeStamp.getTime() - b.timestamp.getTime() > delai) {
 			// Explosion sur l'axe des X positifs
-			for (int i = 1; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= joueur.getTailleFlamme(); i++) {
 				if (map[y][x + i] == 0) {
 					break;
 				}
@@ -104,7 +100,7 @@ public class Bombe {
 			}
 
 			// Explosion sur l'axe des X négatifs
-			for (int i = 1; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= joueur.getTailleFlamme(); i++) {
 				if (map[y][x - i] == 0) {
 					break;
 				}
@@ -162,7 +158,7 @@ public class Bombe {
 				}
 			}
 			// Explosion sur l'axe des Y positifs
-			for (int j = 1; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= joueur.getTailleFlamme(); j++) {
 				if (map[y + j][x] == 0) {
 					break;
 				}
@@ -222,7 +218,7 @@ public class Bombe {
 				}
 			}
 			// Explosion sur l'axe des Y négatifs
-			for (int j = 1; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= joueur.getTailleFlamme(); j++) {
 				if (map[y - j][x] == 0) {
 					break;
 				}
@@ -303,7 +299,7 @@ public class Bombe {
 		Timestamp currentTimeStamp = new Timestamp(System.currentTimeMillis());
 		if (currentTimeStamp.getTime() - b.timestamp.getTime() > delai) {
 			// Explosion sur l'axe des X positifs
-			for (int i = 1; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= joueur.getTailleFlamme(); i++) {
 				if (map[y][x + i] == 0) {
 					break;
 				}
@@ -367,7 +363,7 @@ public class Bombe {
 			}
 
 			// Explosion sur l'axe des X négatifs
-			for (int i = 1; i <= tailleFlamme; i++) {
+			for (int i = 1; i <= joueur.getTailleFlamme(); i++) {
 				if (map[y][x - i] == 0) {
 					break;
 				}
@@ -417,7 +413,7 @@ public class Bombe {
 
 			}
 			// Explosion sur l'axe des Y positifs
-			for (int j = 1; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= joueur.getTailleFlamme(); j++) {
 				if (map[y + j][x] == 0) {
 					break;
 				}
@@ -468,7 +464,7 @@ public class Bombe {
 				}
 			}
 			// Explosion sur l'axe des Y négatifs
-			for (int j = 1; j <= tailleFlamme; j++) {
+			for (int j = 1; j <= joueur.getTailleFlamme(); j++) {
 				if (map[y - j][x] == 0) {
 					break;
 				}
@@ -521,7 +517,7 @@ public class Bombe {
 
 			// On vérifie la position du joueur a la postion de la bombe et aux
 			// autres
-			for (int i = 0; i <= tailleFlamme; i++) {
+			for (int i = 0; i <= joueur.getTailleFlamme(); i++) {
 				StdDraw.picture(b.getX() + 0.5, b.getY() + i + 0.5, "images/explosion_vert.png");
 				StdDraw.picture(b.getX() + 0.5, b.getY() - i + 0.5, "images/explosion_vert.png");
 				StdDraw.picture(b.getX() + i + 0.5, b.getY()+ 0.5, "images/explosion_hori.png");
@@ -561,24 +557,6 @@ public class Bombe {
 			exploser = true;
 		}
 		return exploser;
-	}
-
-	public int getTailleFlamme() {
-		return tailleFlamme;
-	}
-
-	public void setTailleFlamme(int tailleFlamme) {
-		if (this.tailleFlamme < 10 && this.tailleFlamme >= 1) {
-			this.tailleFlamme = tailleFlamme;
-		}
-	}
-
-	public int getTypeFlamme() {
-		return typeFlamme;
-	}
-
-	public void setTypeFlamme(int typeFlamme) {
-		this.typeFlamme = typeFlamme;
 	}
 
 	public int getDelai() {

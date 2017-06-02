@@ -121,9 +121,7 @@ public class Ig {
 		  }
 		}
 		if(nbBombes.size() != 0) {
-			for(int i = 0;i<nbBombes.size();i++) {
-				nbBombes.remove(i);
-			}
+			nbBombes.clear();
 		}
 		
 		while (stop) {
