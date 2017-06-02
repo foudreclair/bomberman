@@ -328,14 +328,18 @@ public class Ig {
 			//SHOWTIME !!
 			StdDraw.show();
 		}
+		StdAudio.close();
 
 	}
 
 	public void ecran_fin(Map map) {
+		
 		while (true) {
+			
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
 			StdDraw.setPenColor(StdDraw.WHITE);
+			
 			if (J1.getVie() <= 0) {
 				StdDraw.text(11, 13, "Le joueur " + J2.getNom() + " a gagné !");
 			}
