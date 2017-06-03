@@ -39,7 +39,7 @@ public class Ig {
 		Font font_title = new Font("Arial", Font.BOLD, 50);
 		Font font = new Font("Arial", Font.CENTER_BASELINE, 30);
 		StdDraw.enableDoubleBuffering();
-		StdAudio.play("/01-title-screen.wav");
+		//StdAudio.play("/01-title-screen.wav");
 		int control = 0;
 		while (true) {
 
@@ -101,9 +101,8 @@ public class Ig {
 			}
 
 			StdDraw.show();
-			// StdDraw.pause(100);
 		}
-		StdAudio.close();
+		//StdAudio.close();
 	}
 
 	public void ecran_de_jeu(Map mapcurrent) {
