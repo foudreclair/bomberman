@@ -123,7 +123,7 @@ public class Ig {
 		if(nbBombes.size() != 0) {
 			nbBombes.clear();
 		}
-		
+		//Attention la piste dur 2minute 09sec  :) 
 		StdAudio.play("/03-stage-theme.wav");
 		while (stop) {
 			if( J1.getVie() <= 0 || J2.getVie() <= 0){
@@ -332,9 +332,8 @@ public class Ig {
 	}
 
 	public void ecran_fin(Map map) {
-		
 		while (true) {
-			
+		
 			StdDraw.enableDoubleBuffering();
 			StdDraw.clear(StdDraw.GRAY);
 			StdDraw.setPenColor(StdDraw.WHITE);
